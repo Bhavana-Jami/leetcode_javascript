@@ -1,0 +1,27 @@
+20. Valid Parentheses
+
+var isValid = function(s) {
+    
+    // so valid paranthesis should have matching opening and closing in right order classic stack usage
+    //push the open brackets, whenever closing bracket encountered
+    //check if stack.pop and closing bracket are a pair or not
+    let stack = [];
+    for(let char of s){
+        //we want to push when it's an opening bracket
+        if(char === '(' || char === '{' || char === '['){
+            stack.push(char);
+        }
+        else{
+                let stackPopEle = stack.pop();
+                if(char === ')' && stackPopEle === '(' || 
+                char === '}' && stackPopEle === '{' ||
+                char === ']' && stackPopEle === '['){
+                    continue;
+                }
+                else{
+                    return false;
+                }
+        }
+    }
+    return stack.length === 0;
+};
