@@ -1,0 +1,18 @@
+78. Subsets
+
+var subsets = function(nums) {
+    let result = [];
+    function helper(index, path){
+        if(index === nums.length){
+            result.push(path);
+            return;
+        }
+        //include
+        helper(index+1, [...path, nums[index]]);
+
+        //exclude
+        helper(index+1, path);
+    }
+    helper(0, [])
+    return result;
+};
