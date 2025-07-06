@@ -1,0 +1,16 @@
+144. Binary Tree Preorder Traversal
+
+var preorderTraversal = function(root) {
+    let stack = [];
+    let result = [];
+    if(root) stack.push(root)
+    while(stack.length > 0){
+        let currentNode = stack.pop();
+        result.push(currentNode.val);
+
+        if(currentNode.right) stack.push(currentNode.right);
+        if(currentNode.left) stack.push(currentNode.left)
+    }
+    return result;
+    
+};
