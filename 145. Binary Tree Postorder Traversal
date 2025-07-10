@@ -1,0 +1,15 @@
+145. Binary Tree Postorder Traversal recursion
+
+var postorderTraversal = function(root) {
+    let stack = [];
+    let result = [];
+    if(root) stack.push(root);
+    function postorder(root){
+        if(root === null) return;
+        if(root.left) postorder(root.left);
+        if(root.right) postorder(root.right);
+        result.push(root.val);
+    }
+    postorder(root)
+    return result;
+};
