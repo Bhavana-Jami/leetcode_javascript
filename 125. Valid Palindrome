@@ -1,0 +1,16 @@
+var isPalindrome = function (s) {
+    const newStr = s.toLowerCase().split("").filter((char) => /[a-z0-9]/.test(char));
+
+    let left = 0;
+    let right = newStr.length - 1;
+
+    while (left < right) {
+        if (newStr[right] !== newStr[left]) {
+            return false;
+        } else {
+            left++;
+            right--;
+        }
+    }
+    return true;
+};
